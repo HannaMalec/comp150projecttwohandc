@@ -19,7 +19,9 @@
 
     body {
         background: url("{{ url_for('static', filename='background_shop.png') }}") no-repeat center center fixed;
-        background-size: cover;
+        background-size: contain;
+        background-attachment: fixed; /* Keeps the image fixed during scroll */
+        background-repeat: no-repeat;
     }
 
     /* Title styling with pop effect */
