@@ -1,23 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Interactive Button</title>
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Title Screen</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
+<style>
+    /* Full-page background and layout */
+    html, body {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: white; /* Ensure text color is white */
+    }
+
+    body {
+        background: url("{{ url_for('static', filename='background_shop.png') }}") no-repeat center center fixed;
+        background-size: cover;
+    }
+
+    /* Title styling with pop effect */
+    .title {
+        font-size: 3em;
+        font-weight: bold;
+        text-align: center;
+        color: #ffcc00;
+        text-shadow: 0 0 10px rgba(255, 204, 0, 0.7), 0 0 20px rgba(255, 204, 0, 0.5), 0 0 30px rgba(255, 204, 0, 0.3);
+        margin-bottom: 50px;
+        animation: pop 1s ease-in-out infinite alternate;
+    }
+
+    @keyframes pop {
+        0% { transform: scale(1); }
+        100% { transform: scale(1.1); }
+    }
+
+    /* Button styling */
+    .button {
+        font-size: 1.5em;
+        padding: 10px 30px;
+        margin: 10px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        transition: background-color 0.3s;
+    }
+
+    .button:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+</style>
 <body>
-  <div class="container">
-    <h1>Click the button to update the number:</h1>
-    <button id="myButton">Click me!</button>
-    <p>Number of clicks: <span id="clickCount">0</span></p>
-  </div>
-  <div class="container">
-    <h1>Case Flipper</h1>
-    <textarea id="inputText" rows="5" cols="50"></textarea>
-    <br>
-    <button id="flipButton">Flip Case</button>
-    <p>Result: <span id="result"></span></p>
-  </div>
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
+<div class="container">
+    <!-- Title with pop effect -->
+    <h1 class="title">Welcome to the Game!</h1>
+
+    <!-- Start and Settings buttons -->
+    <button class="button" onclick="window.location.href='/start'">Start Game</button>
+    <button class="button" onclick="window.location.href='/settings'">Settings</button>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
