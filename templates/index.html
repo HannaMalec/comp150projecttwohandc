@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title Screen</title>
+    <!-- Link to your external CSS file -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-</head>
-
+</head> 
 <body>
-<div class="container">
-    <!-- Title with pop effect -->
-    <h1 class="title">Rainy Day Cafe</h1>
+    <div class="container">
+        <!-- Title with pop effect -->
+        <h1 class="title">Rainy Day Cafe</h1>
 
-    <!-- Start and Settings buttons -->
-    <button class="button" onclick="window.location.href='/start'">Play</button>
-    <button class="button" onclick="window.location.href='/settings'">Settings</button>
-</div>
+        <!-- Start and Settings buttons -->
+        <button class="button" onclick="window.location.href='/start'">Play</button>
+        <button class="button" onclick="window.location.href='/settings'">Settings</button>
+    </div>
 
-<script src="{{ url_for('static', filename='script.js') }}"></script>
+    <!-- Link to your external JavaScript file -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

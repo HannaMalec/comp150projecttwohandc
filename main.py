@@ -21,5 +21,9 @@ def flip_case():
     flipped_text = ''.join(c.lower() if c.isupper() else c.upper() for c in text)
     return jsonify({'flipped_text': flipped_text})
 
+@app.route('/settings')
+def settings():
+    return render_template('settings.html')
+    
 if __name__ == '__main__':
     app.run(debug=True)
