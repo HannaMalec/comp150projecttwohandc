@@ -1,24 +1,58 @@
+/* Full-page background and layout */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white; /* Ensure text color is white */
+}
+
+body {
+    background: url("{{ url_for('static', filename='images/Webpage_1.jpg') }}") no-repeat center center fixed;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.title {
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
+    color: black; /* Text color set to black */
+    margin-bottom: 30px;
+    animation: pop 1s ease-in-out infinite alternate;
+    /* Removed the text-shadow property */
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+.button {
+    font-size: 1.2em;
+    padding: 8px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    transition: background-color 0.3s;
+    width: 250px;
+    margin-top: -80px; /* Added margin-top to move the button up */
+}
+
+.button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
 .container {
-  text-align: center;
-  margin-top: 100px;
+    text-align: center;
 }
 
-textarea {
-  resize: none;
-  font-size: 16px;
-  padding: 10px;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 18px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-button:hover {
-  background-color: #45a049;
+.container button {
+    display: block;
+    margin: 20px auto;
 }

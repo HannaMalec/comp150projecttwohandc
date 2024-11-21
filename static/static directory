@@ -1,0 +1,10 @@
+/your_flask_app
+/static
+    /images
+        Webpage_1.jpg
+    /audios
+    style.css           
+    script.js            
+/templates
+    index.html           
+main.py    
