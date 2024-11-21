@@ -2,9 +2,18 @@
 /static
     /images
         Webpage_1.jpg
+        Webpage_2.jpg
+        Webpage_3.jpg
+        Webpage_5.jpg
+        Webpage_6.jpg
     /audios
     style.css           
     script.js            
 /templates
-    index.html           
+    index.html
+    settings.html
+    order.html
+    make-drinks.html
+    customer-feedback.html
+    results.html
 main.py    
