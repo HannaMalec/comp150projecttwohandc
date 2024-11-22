@@ -1,27 +1,50 @@
-const button = document.getElementById('myButton');
-const clickCount = document.getElementById('clickCount');
+// Adjust brightness using the overlay
+function adjustBrightness(value) {
+  const overlay = document.getElementById('brightness-overlay');
+  if (overlay) {
+    const opacity = (100 - value) / 100; // Calculate opacity based on brightness value
+    overlay.style.opacity = opacity; // Set overlay opacity
+  }
+}
 
-button.addEventListener('click', function() {
-  axios.post('/increment')
-    .then(function(response) {
-      clickCount.textContent = response.data.count;
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
-});
+// Utility to update slider values and adjust dynamically
+function updateSliderValue(sliderId, valueId, callback) {
+  const slider = document.getElementById(sliderId);
+  const valueDisplay = document.getElementById(valueId);
 
-const inputText = document.getElementById('inputText');
-const flipButton = document.getElementById('flipButton');
-const result = document.getElementById('result');
+  slider.oninput = function () {
+    valueDisplay.textContent = slider.value; // Update percentage display dynamically
+    if (callback) callback(slider.value); // Trigger callback for additional effects
+  };
+}
 
-flipButton.addEventListener('click', function() {
-  const text = inputText.value;
-  axios.post('/flip_case', { text: text })
-    .then(function(response) {
-      result.textContent = response.data.flipped_text;
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
-});
+// Load settings and initialize slider listeners
+function loadSettings() {
+  const sliders = [
+    { sliderId: 'brightness', valueId: 'brightnessValue', callback: adjustBrightness },
+    { sliderId: 'soundEffect', valueId: 'soundEffectValue' },
+    { sliderId: 'jazzMusic', valueId: 'jazzMusicValue' },
+    { sliderId: 'rainMusic', valueId: 'rainMusicValue' }
+  ];
+
+  sliders.forEach(({ sliderId, valueId, callback }) => {
+    const slider = document.getElementById(sliderId);
+    const valueDisplay = document.getElementById(valueId);
+    const savedValue = localStorage.getItem(sliderId) || 50;
+
+    // Set initial values
+    slider.value = savedValue;
+    valueDisplay.textContent = savedValue;
+
+    // Apply brightness setting immediately on load
+    if (sliderId === 'brightness' && callback) callback(savedValue);
+
+    // Add real-time update listeners
+    updateSliderValue(sliderId, valueId, callback);
+  });
+}
+
+// Initialize the settings page
+window.onload = function () {
+  loadSettings();
+};

@@ -3,22 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title Screen</title>
-    <!-- Link to your external CSS file -->
+    <title>Rainy Day Cafe</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-</head> 
-<body>
-    <div class="container">
-        <!-- Title with pop effect -->
-        <h1 class="title">Rainy Day Cafe</h1>
-
-        <!-- Start and Settings buttons -->
-        <button class="button" onclick="window.location.href='/start'">Play</button>
-        <button class="button" onclick="window.location.href='/settings'">Settings</button>
-    </div>
-
-    <!-- Link to your external JavaScript file -->
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body class="title-screen" style="background: url('{{ url_for('static', filename='images/Webpage_1.jpg') }}') no-repeat center center fixed; background-size: cover;">
+<div class="container">
+    <h1 class="title">Rainy Day Cafe</h1>
+    <button class="button" onclick="window.location.href='/start'">Play</button>
+    <button class="button" onclick="window.location.href='/settings'">Settings</button>
+</div>
 </body>
 </html>
