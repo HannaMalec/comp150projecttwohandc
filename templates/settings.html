@@ -22,6 +22,31 @@
                 color: black;
             }
         </style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Settings</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+        <style>
+            body {
+                color: black;
+                background-image: url('{{ url_for("static", filename="Webpage_2.jpg") }}');
+                background-size: cover; 
+                background-position: center center; 
+                background-repeat: no-repeat; 
+            }
+
+            h1, label, p {
+                color: black;
+            }
+
+            button {
+                color: black;
+            }
+        </style>
+    </head>
+
 </head>
 <body>
     <h1>Game Settings</h1>
