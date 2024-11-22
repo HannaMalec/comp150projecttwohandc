@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings</title>
+    <title>Game Settings</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,40 +47,42 @@
         </style>
     </head>
 
+
 </head>
-<body>
-    <h1>Game Settings</h1>
+<body class="settings">
+<h1>Game Settings</h1>
 
-    <!-- Brightness Slider -->
-    <div class="slider-container">
-        <label for="brightness">Brightness</label>
-        <input type="range" id="brightness" min="0" max="100" value="50" step="1">
-        <p>Brightness: <span id="brightnessValue" class="value">50</span>%</p>
-    </div>
+<!-- Brightness Slider -->
+<div class="slider-container">
+    <label for="brightness">Brightness</label>
+    <input type="range" id="brightness" min="0" max="100" value="50" step="1">
+    <p>Brightness: <span id="brightnessValue">50</span>%</p>
+</div>
 
-    <!-- Sound Effect Slider -->
-    <div class="slider-container">
-        <label for="soundEffect">Sound Effects Volume</label>
-        <input type="range" id="soundEffect" min="0" max="100" value="50" step="1">
-        <p>Sound Effect Volume: <span id="soundEffectValue" class="value">50</span>%</p>
-    </div>
+<!-- Sound Effects Volume Slider -->
+<div class="slider-container">
+    <label for="soundEffect">Sound Effects Volume</label>
+    <input type="range" id="soundEffect" min="0" max="100" value="50" step="1">
+    <p>Sound Effect Volume: <span id="soundEffectValue">50</span>%</p>
+</div>
 
-    <!-- Jazz Music Slider -->
-    <div class="slider-container">
-        <label for="jazzMusic">Jazz Music Volume</label>
-        <input type="range" id="jazzMusic" min="0" max="100" value="50" step="1">
-        <p>Jazz Music Volume: <span id="jazzMusicValue" class="value">50</span>%</p>
-    </div>
+<!-- Jazz Music Volume Slider -->
+<div class="slider-container">
+    <label for="jazzMusic">Jazz Music Volume</label>
+    <input type="range" id="jazzMusic" min="0" max="100" value="50" step="1">
+    <p>Jazz Music Volume: <span id="jazzMusicValue">50</span>%</p>
+</div>
 
-    <!-- Rain Music Slider -->
-    <div class="slider-container">
-        <label for="rainMusic">Rain Music Volume</label>
-        <input type="range" id="rainMusic" min="0" max="100" value="50" step="1">
-        <p>Rain Music Volume: <span id="rainMusicValue" class="value">50</span>%</p>
-    </div>
+<!-- Rain Music Volume Slider -->
+<div class="slider-container">
+    <label for="rainMusic">Rain Music Volume</label>
+    <input type="range" id="rainMusic" min="0" max="100" value="50" step="1">
+    <p>Rain Music Volume: <span id="rainMusicValue">50</span>%</p>
+</div>
 
-    <button onclick="saveSettings()">Save Settings</button>
-    <button onclick="window.location.href='/start';">Back to Game</button>
+<!-- Buttons -->
+<button onclick="saveSettings()">Save Settings</button>
+<button onclick="window.location.href='/'">Back to Game</button>
 
     <script>
         // JavaScript for dynamically updating slider values
@@ -142,3 +144,4 @@
             if (localStorage.getItem('rainMusic')) {
                 rainMusicSlider.value = localStorage.getItem('rainMusic');
                 rainMusicValue.textContent
+
