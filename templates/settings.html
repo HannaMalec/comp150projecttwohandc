@@ -47,6 +47,11 @@
         .top-right-buttons button:hover {
             background-color: #f0f0f0;
         }
+
+        /* Hiding audio controls */
+        audio {
+            display: none;
+        }
     </style>
 </head>
 <body class="settings">
@@ -87,6 +92,15 @@
         <button onclick="window.location.href='/'">Back to Game</button>
     </div>
 
+    <!-- Hidden Audio Elements for Background Music -->
+    <audio id="jazzAudio" loop autoplay>
+        <source src="{{ url_for('static', filename='audios/jazz_music.mp3') }}" type="audio/mp3">
+    </audio>
+
+    <audio id="rainAudio" loop autoplay>
+        <source src="{{ url_for('static', filename='audios/rain_music.mp3') }}" type="audio/mp3">
+    </audio>
+
     <script>
         // JavaScript for dynamically updating slider values
         const brightnessSlider = document.getElementById('brightness');
@@ -105,14 +119,18 @@
 
         const jazzMusicSlider = document.getElementById('jazzMusic');
         const jazzMusicValue = document.getElementById('jazzMusicValue');
+        const jazzAudio = document.getElementById('jazzAudio');
         jazzMusicSlider.oninput = function() {
             jazzMusicValue.textContent = jazzMusicSlider.value;
+            jazzAudio.volume = jazzMusicSlider.value / 100;
         };
 
         const rainMusicSlider = document.getElementById('rainMusic');
         const rainMusicValue = document.getElementById('rainMusicValue');
+        const rainAudio = document.getElementById('rainAudio');
         rainMusicSlider.oninput = function() {
             rainMusicValue.textContent = rainMusicSlider.value;
+            rainAudio.volume = rainMusicSlider.value / 100;
         };
 
         // Save settings to localStorage
@@ -142,25 +160,29 @@
             if (localStorage.getItem('jazzMusic')) {
                 jazzMusicSlider.value = localStorage.getItem('jazzMusic');
                 jazzMusicValue.textContent = jazzMusicSlider.value;
+                jazzAudio.volume = jazzMusicSlider.value / 100;
             }
 
             if (localStorage.getItem('rainMusic')) {
                 rainMusicSlider.value = localStorage.getItem('rainMusic');
                 rainMusicValue.textContent = rainMusicSlider.value;
+                rainAudio.volume = rainMusicSlider.value / 100;
             }
         };
 
-        // Function to toggle play/pause
-        let isPlaying = false;
+        // Function to toggle play/pause (if needed)
+        let isPlaying = true;  // Initially playing since music is set to autoplay
         function togglePlayPause() {
             const playPauseButton = document.getElementById('playPauseButton');
             isPlaying = !isPlaying;
             if (isPlaying) {
                 playPauseButton.textContent = 'Pause';
-                // Add logic for play action (e.g., start music or animation)
+                jazzAudio.play();
+                rainAudio.play();
             } else {
                 playPauseButton.textContent = 'Play';
-                // Add logic for pause action (e.g., stop music or animation)
+                jazzAudio.pause();
+                rainAudio.pause();
             }
         }
     </script>
