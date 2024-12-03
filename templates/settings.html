@@ -9,6 +9,7 @@
         body {
             color: black;
             background-color: #f0f0f0;
+            position: relative;
         }
 
         h1, label, p {
@@ -25,6 +26,26 @@
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
+        }
+
+        /* Positioning the play and settings buttons in the top-right corner */
+        .top-right-buttons {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .top-right-buttons button {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .top-right-buttons button:hover {
+            background-color: #f0f0f0;
         }
     </style>
 </head>
@@ -59,9 +80,12 @@
         <p>Rain Music Volume: <span id="rainMusicValue">50</span>%</p>
     </div>
 
-    <!-- Buttons -->
-    <button onclick="saveSettings()">Save Settings</button>
-    <button onclick="window.location.href='/'">Back to Game</button>
+    <!-- Top-right buttons (Play and Settings) -->
+    <div class="top-right-buttons">
+        <button id="playPauseButton" onclick="togglePlayPause()">Play</button>
+        <button onclick="saveSettings()">Save Settings</button>
+        <button onclick="window.location.href='/'">Back to Game</button>
+    </div>
 
     <script>
         // JavaScript for dynamically updating slider values
@@ -125,6 +149,20 @@
                 rainMusicValue.textContent = rainMusicSlider.value;
             }
         };
+
+        // Function to toggle play/pause
+        let isPlaying = false;
+        function togglePlayPause() {
+            const playPauseButton = document.getElementById('playPauseButton');
+            isPlaying = !isPlaying;
+            if (isPlaying) {
+                playPauseButton.textContent = 'Pause';
+                // Add logic for play action (e.g., start music or animation)
+            } else {
+                playPauseButton.textContent = 'Play';
+                // Add logic for pause action (e.g., stop music or animation)
+            }
+        }
     </script>
 </body>
 </html>
