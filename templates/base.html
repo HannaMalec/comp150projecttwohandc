@@ -14,35 +14,40 @@
         <button class="button" onclick="window.location.href='/settings'">Settings</button>
     </div>
 
+    <!-- Hidden Audio Elements for Background Music (Moved here) -->
+    <audio id="jazzAudio" loop autoplay>
+        <source src="{{ url_for('static', filename='audios/jazz_music.mp3') }}" type="audio/mp3">
+    </audio>
+
+    <audio id="rainAudio" loop autoplay>
+        <source src="{{ url_for('static', filename='audios/rain_music.mp3') }}" type="audio/mp3">
+    </audio>
+
+    {% block content %}
+    {% endblock %}
 
     <script>
         window.onload = function() {
-            // Load saved settings from localStorage
-
-            // Apply saved brightness
+            // Apply saved brightness if any
             if (localStorage.getItem('brightness')) {
                 const brightnessValue = localStorage.getItem('brightness');
                 document.body.style.backgroundColor = `rgb(${brightnessValue}%, ${brightnessValue}%, ${brightnessValue}%)`;
             }
 
-            // Apply saved jazz music volume
+            // Apply saved jazz music volume if any
+            const jazzAudio = document.getElementById('jazzAudio');
             if (localStorage.getItem('jazzMusic')) {
-                const jazzAudio = document.getElementById('jazzAudio');
                 const jazzMusicVolume = localStorage.getItem('jazzMusic');
-                if (jazzAudio) {
-                    jazzAudio.volume = jazzMusicVolume / 100;  // Scale to 0-1
-                }
+                jazzAudio.volume = jazzMusicVolume / 100;  // Scale to 0-1
             }
 
-            // Apply saved rain music volume
+            // Apply saved rain music volume if any
+            const rainAudio = document.getElementById('rainAudio');
             if (localStorage.getItem('rainMusic')) {
-                const rainAudio = document.getElementById('rainAudio');
                 const rainMusicVolume = localStorage.getItem('rainMusic');
-                if (rainAudio) {
-                    rainAudio.volume = rainMusicVolume / 100;  // Scale to 0-1
-                }
+                rainAudio.volume = rainMusicVolume / 100;  // Scale to 0-1
             }
-        }
+        };
     </script>
 </body>
 </html>
