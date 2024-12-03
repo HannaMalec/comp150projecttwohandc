@@ -12,6 +12,13 @@ function updateSliderValue(sliderId, valueId, callback) {
   const slider = document.getElementById(sliderId);
   const valueDisplay = document.getElementById(valueId);
 
+  // Check if both slider and valueDisplay elements exist
+  if (!slider || !valueDisplay) {
+    console.error(`Missing element: ${sliderId} or ${valueId}`);
+    return; // Skip if elements are not found
+  }
+
+  // Update value dynamically as the slider moves
   slider.oninput = function () {
     valueDisplay.textContent = slider.value; // Update percentage display dynamically
     if (callback) callback(slider.value); // Trigger callback for additional effects
@@ -30,6 +37,13 @@ function loadSettings() {
   sliders.forEach(({ sliderId, valueId, callback }) => {
     const slider = document.getElementById(sliderId);
     const valueDisplay = document.getElementById(valueId);
+
+    // Check if both slider and valueDisplay elements exist
+    if (!slider || !valueDisplay) {
+      console.error(`Missing element: ${sliderId} or ${valueId}`);
+      return; // Skip if elements are not found
+    }
+
     const savedValue = localStorage.getItem(sliderId) || 50;
 
     // Set initial values
@@ -44,7 +58,8 @@ function loadSettings() {
   });
 }
 
-// Initialize the settings page
-window.onload = function () {
+// Initialize the settings page after the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', function () {
   loadSettings();
-};
+});
+

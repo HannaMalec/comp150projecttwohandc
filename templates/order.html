@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainy Day Cafe - Play</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('{{ url_for("static", filename="images/Webpage_3.jpg") }}');
+            background-size: cover;
+            background-position: center center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .counter-area {
+            position: relative;
+            width: 80%;
+            height: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .customer {
+            position: absolute;
+            bottom: 20px; /* Adjust as needed to position the customer */
+            width: 200px; /* Set a suitable size for the customer images */
+            height: auto;
+        }
+
+        .text-bubble {
+            position: absolute;
+            bottom: 150px; /* Position the text bubble above the customer */
+            width: 250px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border-radius: 10px;
+            font-size: 16px;
+            text-align: center;
+            display: none;
+        }
+
+        .button-container {
+            position: absolute;
+            bottom: 40px; /* Position button at the bottom */
+            left: 30px; /* Position button to the left */
+            z-index: 10;
+        }
+
+        .button-container button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .button-container button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button onclick="window.location.href='/'">Back to Title</button>
+    </div>
+
+    <div class="counter-area">
+        <img id="customerImage" class="customer" src="" alt="Customer">
+        <div id="textBubble" class="text-bubble"></div>
+    </div>
+
+    <script>
+        // Customer images and dialogue with bold drink names
+        const customers = [
+            { image: "{{ url_for('static', filename='images/Customer_1.png') }}", text: "Hi there! Could I get a <strong>Chocolate Chip Chillappucino</strong>?" },
+            { image: "{{ url_for('static', filename='images/Customer_2.png') }}", text: "I'm craving a <strong>Caramel Macchiato</strong> today!" },
+            { image: "{{ url_for('static', filename='images/Customer_3.png') }}", text: "Can I have a <strong>latte</strong>, please?" },
+            { image: "{{ url_for('static', filename='images/Customer_4.png') }}", text: "I’ll take a <strong>Vanilla Chillappucino</strong>." },
+            { image: "{{ url_for('static', filename='images/Customer_5.png') }}", text: "Do you have any <strong>drip coffee</strong>?" },
+            { image: "{{ url_for('static', filename='images/Customer_6.png') }}", text: "Could I get a <strong>White Mocha</strong>?" },
+            { image: "{{ url_for('static', filename='images/Customer_7.png') }}", text: "I’ll have a <strong>Matcha Chillappucino</strong> today!" },
+            { image: "{{ url_for('static', filename='images/Customer_8.png') }}", text: "A <strong>Green Tea Latte</strong>, please!" }
+        ];
+
+        // Function to randomly select a customer
+        function randomCustomer() {
+            const randomIndex = Math.floor(Math.random() * customers.length);
+            const selectedCustomer = customers[randomIndex];
+
+            // Set customer image and text
+            document.getElementById('customerImage').src = selectedCustomer.image;
+            document.getElementById('textBubble').innerHTML = selectedCustomer.text; // Use innerHTML to allow HTML formatting
+            document.getElementById('textBubble').style.display = 'block';
+        }
+
+        // Call random customer on page load
+        window.onload = randomCustomer;
+    </script>
+</body>
+</html>

@@ -1,12 +1,23 @@
 /your_flask_app
 /static
     /images
+        Customer_1.png
+        Customer_2.png
+        Customer_3.png
+        Customer_4.png
+        Customer_5.png
+        Customer_6.png
+        Customer_7.png
+        Customer_8.png
         Webpage_1.jpg
         Webpage_2.jpg
         Webpage_3.jpg
+        Webpage_4.jpg
         Webpage_5.jpg
         Webpage_6.jpg
     /audios
+        jazz_music.mp3
+        rain_music.mp3
     style.css           
     script.js            
 /templates

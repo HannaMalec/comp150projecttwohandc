@@ -7,7 +7,7 @@ Project 2: Web App(**NOTE**: Everything added will have a class in the test file
 - Achievements can be gained (perfect work day, etc)
 - Hand-drawn graphics(Hanna designs: customers, cups and fillings, buttons and interactable items, menus with prices)
 - Background Music: Jazz and also a rain sound effect
-- Sound effects(filling cups, gibberish noises when customers speak/order, etc.)
+- Sound effects(filling cups, gibberish noises when customers speak/order, etc.).
 - Customizable barista(name): under settings webpage 
 
 **WEBPAGES:**
