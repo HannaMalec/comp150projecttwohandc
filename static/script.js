@@ -62,4 +62,8 @@ function loadSettings() {
 document.addEventListener('DOMContentLoaded', function () {
   loadSettings();
 });
+// Redirect to make_drinks.html
+function redirectToMakeDrinks() {
+    window.location.href = 'make_drinks.html';
+}
 

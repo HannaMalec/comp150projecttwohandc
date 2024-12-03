@@ -101,3 +101,27 @@ body {
     filter: brightness(1); /* Default brightness (100%) */
     transition: filter 0.3s ease; /* Smooth adjustment */
 }
+<style>
+    /* Bottom-right Next button styling */
+    .next-button-container {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        z-index: 10;
+    }
+
+    .next-button-container button {
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .next-button-container button:hover {
+        background-color: #0056b3;
+    }
+</style>
