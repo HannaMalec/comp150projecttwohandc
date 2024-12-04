@@ -7,10 +7,10 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <script src="{{ url_for('static', filename='script.js') }}" defer></script>
     <style>
-        /* Positioning the Next button in the bottom-right corner */
+        /* Positioning the Next button in the top-right corner */
         .next-button {
             position: fixed;
-            bottom: 20px;
+            top: 20px;
             right: 20px;
             background-color: #4CAF50; /* Green */
             color: white;
@@ -80,7 +80,7 @@
     {% block content %}
     {% endblock %}
 
-    <!-- Next Button (Bottom-Right Corner) -->
+    <!-- Next Button (Top-Right Corner) -->
     <button class="next-button" onclick="window.location.href='/next'">Next</button>
 
     <script>
