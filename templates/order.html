@@ -71,17 +71,17 @@
             background-color: #555;
         }
 
-        /* Top-right buttons styling */
-        .top-right-buttons {
+        /* Top-left buttons styling */
+        .top-left-buttons {
             position: absolute;
             top: 10px;
-            right: 10px;
+            margin-left: 10px;
             display: flex;
             gap: 10px;
             z-index: 20;
         }
 
-        .top-right-buttons button {
+        .top-left-buttons button {
             background-color: #333;
             color: white;
             padding: 10px;
@@ -90,7 +90,7 @@
             font-size: 16px;
         }
 
-        .top-right-buttons button:hover {
+        .top-left-buttons button:hover {
             background-color: #555;
         }
 
@@ -115,7 +115,7 @@
     </style>
 </head>
 <body>
-    <!-- Play/Pause and Settings buttons at the top right -->
+    <!-- Play/Pause and Settings buttons at the top left -->
     <div class="top-right-buttons">
         <button id="playPauseButton" onclick="togglePlayPause()">Play</button>
         <button onclick="window.location.href='/settings'">Settings</button>
