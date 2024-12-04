@@ -18,6 +18,7 @@
             align-items: center;
             height: 100vh;
             overflow: hidden;
+            position: relative; /* This ensures positioning for the next button is relative to the body */
         }
 
         .counter-area {
@@ -92,6 +93,25 @@
         .top-right-buttons button:hover {
             background-color: #555;
         }
+
+        /* Styling for the Next Button (Bottom-right corner) */
+        .next-button {
+            position: absolute;  /* Absolute positioning relative to the body */
+            bottom: 20px;        /* Position it 20px from the bottom */
+            right: 20px;         /* Position it 20px from the right */
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 32px;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .next-button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
@@ -109,6 +129,9 @@
         <img id="customerImage" class="customer" src="" alt="Customer">
         <div id="textBubble" class="text-bubble"></div>
     </div>
+
+    <!-- Next Button (Bottom-right corner) -->
+    <button class="next-button" onclick="goToNextPage()">Next</button>
 
     <script>
         // Customer images and dialogue with bold drink names
@@ -151,7 +174,13 @@
                 // Add pause functionality (e.g., stop background music or animation)
                 console.log("Paused music or animation...");
             }
-            
+        }
+
+        // Go to the next page when the "Next" button is clicked
+        function goToNextPage() {
+            // Change the background image to Webpage_4.jpg
+            document.body.style.backgroundImage = "url('{{ url_for('static', filename='images/Webpage_4.jpg') }}')";
+
         }
     </script>
 </body>
